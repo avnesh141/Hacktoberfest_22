@@ -5,6 +5,11 @@ export default function TextForm(props) {
     setText(newText);
         props.showalert("SUCCESS", "Text converted to Uppercase");
   }
+  const handleDownClick = () => {
+    let newText = text.toLowerCase();
+    setText(newText);
+        props.showalert("SUCCESS", "Text converted to Lowercase");
+  }
   const handleOnchange = (event) => {
     setText(event.target.value);
   }
@@ -33,6 +38,7 @@ export default function TextForm(props) {
         <textarea className="form-control" id="exampleFormControlTextarea1" style={{backgroundColor:props.mode==='light'?'white':'grey',color:props.mode==='grey'?'blue':'black'}}rows="4" value={text} onChange={handleOnchange} ></textarea>
     </div>
     <button className="btn btn-primary my-3 mx-2" onClick={handleUpClick}>Change to UpperCase</button>
+    <button className="btn btn-primary my-3 mx-2" onClick={handleDownClick}>Change to LowerCase</button>
     <button className="btn btn-primary my-3 mx-2" onClick={textCopy}>Copy Text</button>
     <button className="btn btn-primary my-3 mx-2" onClick={textClear}>Clear Text</button>
     <button className="btn btn-primary my-3 mx-2" onClick={rmSpace}>Remove Extra Space</button>
